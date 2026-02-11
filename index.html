@@ -1,81 +1,380 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smaran Basnet | Digital Marketing Specialist</title>
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <!-- THEME TOGGLE -->
+    <div class="theme-toggle" id="themeToggle">
+        <i class='bx bx-sun sun-icon'></i>
+        <i class='bx bx-moon moon-icon'></i>
+    </div>
+
     <!-- HEADER -->
-    <header class="header">
+    <header class="header" id="header">
         <a href="#" class="logo">Smaran<span>B.</span></a>
         <nav class="navbar">
-            <a href="#home" class="active">Home</a>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#blog" class="nav-link">Projects</a>
+            <a href="#contact" class="nav-link">Contact</a>
         </nav>
+        <div class="menu-toggle" id="menuToggle">
+            <i class='bx bx-menu'></i>
+        </div>
     </header>
 
     <!-- HOME -->
     <section class="home" id="home">
         <div class="home-content">
-            <h1>Hi, I'm <span>Smaran Basnet</span></h1>
-            <p>Digital Marketing Specialist & Business Growth Strategist</p>
-            <div class="btn-box">
-                <a href="#contact" class="btn">Hire Me</a>
-                <a href="#services" class="btn-outline">See Services</a>
+            <div class="text-content">
+                <span class="greeting">Welcome to my portfolio</span>
+                <h1>Hi, I'm <span class="name-highlight">Smaran Basnet</span></h1>
+                <p class="tagline">Digital Marketing Specialist & Business Growth Strategist</p>
+                <p class="description">I help automobile and eCommerce businesses grow through performance marketing, SEO, and data-driven strategies.</p>
+                <div class="btn-box">
+                    <a href="#contact" class="btn btn-primary">Hire Me</a>
+                    <a href="#services" class="btn btn-outline">See Services</a>
+                </div>
             </div>
+            <div class="profile-image">
+                <div class="image-wrapper">
+                    <img src="images/profile.jpg" alt="Smaran Basnet" onerror="this.src='https://ui-avatars.com/api/?name=Smaran+Basnet&size=400&background=6366f1&color=fff&bold=true&font-size=0.4'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL STATS -->
+    <section class="social-stats" id="socials">
+        <h2 class="section-title">Connect With Me</h2>
+        <div class="stats-grid">
+            <a href="https://linkedin.com/in/yourprofile" target="_blank" class="stat-card linkedin">
+                <div class="icon-wrapper">
+                    <i class='bx bxl-linkedin'></i>
+                </div>
+                <div class="stat-info">
+                    <h3>LinkedIn</h3>
+                    <p class="follower-count">5.2K</p>
+                    <span class="label">Connections</span>
+                </div>
+            </a>
+            
+            <a href="https://instagram.com/yourprofile" target="_blank" class="stat-card instagram">
+                <div class="icon-wrapper">
+                    <i class='bx bxl-instagram'></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Instagram</h3>
+                    <p class="follower-count">12.5K</p>
+                    <span class="label">Followers</span>
+                </div>
+            </a>
+            
+            <a href="https://twitter.com/yourprofile" target="_blank" class="stat-card twitter">
+                <div class="icon-wrapper">
+                    <i class='bx bxl-twitter'></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Twitter</h3>
+                    <p class="follower-count">8.3K</p>
+                    <span class="label">Followers</span>
+                </div>
+            </a>
+            
+            <a href="https://facebook.com/yourprofile" target="_blank" class="stat-card facebook">
+                <div class="icon-wrapper">
+                    <i class='bx bxl-facebook'></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Facebook</h3>
+                    <p class="follower-count">15.8K</p>
+                    <span class="label">Followers</span>
+                </div>
+            </a>
+            
+            <a href="https://youtube.com/@yourchannel" target="_blank" class="stat-card youtube">
+                <div class="icon-wrapper">
+                    <i class='bx bxl-youtube'></i>
+                </div>
+                <div class="stat-info">
+                    <h3>YouTube</h3>
+                    <p class="follower-count">3.2K</p>
+                    <span class="label">Subscribers</span>
+                </div>
+            </a>
+            
+            <a href="https://tiktok.com/@yourprofile" target="_blank" class="stat-card tiktok">
+                <div class="icon-wrapper">
+                    <i class='bx bxl-tiktok'></i>
+                </div>
+                <div class="stat-info">
+                    <h3>TikTok</h3>
+                    <p class="follower-count">20.1K</p>
+                    <span class="label">Followers</span>
+                </div>
+            </a>
         </div>
     </section>
 
     <!-- ABOUT -->
     <section class="about" id="about">
-        <h2>About Me</h2>
-        <p>
-            I help automobile and eCommerce businesses grow through performance marketing, SEO, and data-driven strategies. 
-            With 3+ years of experience, I deliver measurable growth and ROI-focused results.
-        </p>
+        <div class="about-container">
+            <div class="about-image">
+                <img src="images/about.jpg" alt="About Smaran" onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=800&fit=crop'">
+                <div class="experience-badge">
+                    <span class="number">3+</span>
+                    <span class="text">Years Experience</span>
+                </div>
+            </div>
+            <div class="about-content">
+                <span class="subtitle">Get to know me</span>
+                <h2 class="section-title">About Me</h2>
+                <p>
+                    I help automobile and eCommerce businesses grow through performance marketing, SEO, and data-driven strategies. 
+                    With 3+ years of experience, I deliver measurable growth and ROI-focused results.
+                </p>
+                <p>
+                    My expertise lies in creating comprehensive digital marketing strategies that combine technical SEO, 
+                    content marketing, paid advertising, and analytics to drive sustainable business growth.
+                </p>
+                <div class="skills-list">
+                    <div class="skill-item">
+                        <i class='bx bx-check-circle'></i>
+                        <span>Performance Marketing</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class='bx bx-check-circle'></i>
+                        <span>SEO & Content Strategy</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class='bx bx-check-circle'></i>
+                        <span>Google & Meta Ads</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class='bx bx-check-circle'></i>
+                        <span>Data Analytics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- SERVICES -->
     <section class="services" id="services">
-        <h2>What I Do</h2>
+        <span class="subtitle">What I Offer</span>
+        <h2 class="section-title">My Services</h2>
         <div class="service-grid">
             <div class="service-card">
-                <i class='bx bxs-bar-chart-alt-2'></i>
+                <div class="icon-box">
+                    <i class='bx bxs-bar-chart-alt-2'></i>
+                </div>
                 <h3>Digital Marketing Strategy</h3>
-                <p>End-to-end strategies aligned with business goals and ROI.</p>
+                <p>End-to-end strategies aligned with business goals and ROI. I create comprehensive marketing plans that drive results.</p>
+                <a href="#contact" class="service-link">Learn More <i class='bx bx-right-arrow-alt'></i></a>
             </div>
+            
             <div class="service-card">
-                <i class='bx bxs-search'></i>
+                <div class="icon-box">
+                    <i class='bx bxs-search'></i>
+                </div>
                 <h3>SEO & Organic Growth</h3>
-                <p>Technical SEO, content optimization, and traffic growth.</p>
+                <p>Technical SEO, content optimization, and traffic growth. Boost your rankings and organic visibility.</p>
+                <a href="#contact" class="service-link">Learn More <i class='bx bx-right-arrow-alt'></i></a>
             </div>
+            
             <div class="service-card">
-                <i class='bx bxs-bullseye'></i>
+                <div class="icon-box">
+                    <i class='bx bxs-bullseye'></i>
+                </div>
                 <h3>Performance Marketing</h3>
-                <p>Google & Meta Ads focused on conversions and ROAS.</p>
+                <p>Google & Meta Ads focused on conversions and ROAS. Data-driven campaigns that deliver measurable results.</p>
+                <a href="#contact" class="service-link">Learn More <i class='bx bx-right-arrow-alt'></i></a>
             </div>
+            
+            <div class="service-card">
+                <div class="icon-box">
+                    <i class='bx bxs-shopping-bag'></i>
+                </div>
+                <h3>eCommerce Marketing</h3>
+                <p>Specialized strategies for online stores. Increase sales, reduce cart abandonment, and maximize customer lifetime value.</p>
+                <a href="#contact" class="service-link">Learn More <i class='bx bx-right-arrow-alt'></i></a>
+            </div>
+            
+            <div class="service-card">
+                <div class="icon-box">
+                    <i class='bx bxs-data'></i>
+                </div>
+                <h3>Analytics & Reporting</h3>
+                <p>Track, measure, and optimize. Get detailed insights into your marketing performance with actionable recommendations.</p>
+                <a href="#contact" class="service-link">Learn More <i class='bx bx-right-arrow-alt'></i></a>
+            </div>
+            
+            <div class="service-card">
+                <div class="icon-box">
+                    <i class='bx bxs-group'></i>
+                </div>
+                <h3>Social Media Management</h3>
+                <p>Build engaged communities and drive conversions through strategic social media marketing across all platforms.</p>
+                <a href="#contact" class="service-link">Learn More <i class='bx bx-right-arrow-alt'></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG/PROJECTS -->
+    <section class="blog" id="blog">
+        <span class="subtitle">Recent Work</span>
+        <h2 class="section-title">Projects & Collaborations</h2>
+        <div class="blog-grid" id="blogGrid">
+            <!-- Blog posts will be dynamically inserted here -->
+        </div>
+        <div class="add-post-btn-wrapper">
+            <button class="btn btn-primary" onclick="openAddPostModal()">
+                <i class='bx bx-plus'></i> Add New Project
+            </button>
         </div>
     </section>
 
     <!-- CONTACT -->
     <section class="contact" id="contact">
-        <h2>Contact Me</h2>
-        <p>Get in touch for business inquiries or collaborations.</p>
-        <a href="mailto:your@email.com" class="btn">Email Me</a>
+        <div class="contact-container">
+            <div class="contact-info">
+                <span class="subtitle">Get In Touch</span>
+                <h2 class="section-title">Contact Me</h2>
+                <p>Ready to grow your business? Let's discuss how I can help you achieve your marketing goals.</p>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class='bx bx-envelope'></i>
+                        <div>
+                            <h4>Email</h4>
+                            <a href="mailto:smaran@example.com">smaran@example.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class='bx bx-phone'></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <a href="tel:+977-9800000000">+977-9800000000</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class='bx bx-map'></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Kathmandu, Nepal</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collaboration">
+                    <p class="collab-text">In collaboration with</p>
+                    <a href="https://asbinthapa.info.np" target="_blank" class="collab-link">
+                        <span>asbinthapa.info.np</span>
+                        <i class='bx bx-link-external'></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="contact-form-wrapper">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder=" " required>
+                        <label for="name">Your Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder=" " required>
+                        <label for="email">Your Email</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" placeholder=" " required>
+                        <label for="subject">Subject</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="5" placeholder=" " required></textarea>
+                        <label for="message">Your Message</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        Send Message
+                        <i class='bx bx-send'></i>
+                    </button>
+                </form>
+            </div>
+        </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="footer">
-        <p>&copy; 2026 Smaran Basnet | All Rights Reserved</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Smaran Basnet</h3>
+                <p>Digital Marketing Specialist helping businesses grow through data-driven strategies.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#blog">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Me</h4>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class='bx bxl-linkedin'></i></a>
+                    <a href="https://instagram.com/yourprofile" target="_blank"><i class='bx bxl-instagram'></i></a>
+                    <a href="https://twitter.com/yourprofile" target="_blank"><i class='bx bxl-twitter'></i></a>
+                    <a href="https://facebook.com/yourprofile" target="_blank"><i class='bx bxl-facebook'></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Smaran Basnet | All Rights Reserved | In collaboration with <a href="https://asbinthapa.info.np">asbinthapa.info.np</a></p>
+        </div>
     </footer>
-</body>
 
+    <!-- ADD POST MODAL -->
+    <div class="modal" id="addPostModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeAddPostModal()">&times;</span>
+            <h3>Add New Project</h3>
+            <form id="addPostForm" class="add-post-form">
+                <div class="form-group">
+                    <input type="text" id="postTitle" placeholder=" " required>
+                    <label for="postTitle">Project Title</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="postTeam" placeholder=" " required>
+                    <label for="postTeam">Team/Company Name</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="postImage" placeholder=" " required>
+                    <label for="postImage">Image URL</label>
+                </div>
+                <div class="form-group">
+                    <input type="date" id="postDate" required>
+                    <label for="postDate">Date</label>
+                </div>
+                <div class="form-group">
+                    <textarea id="postDescription" rows="4" placeholder=" " required></textarea>
+                    <label for="postDescription">Project Description</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Project</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 </html>
