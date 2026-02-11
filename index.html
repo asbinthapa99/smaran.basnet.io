@@ -10,6 +10,63 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+
+    {
+      "@type": "Person",
+      "@id": "https://smaranbasnet.com.np/#person",
+      "name": "Smaran Basnet",
+      "jobTitle": "Digital Marketing Specialist",
+      "description": "Digital Marketing Specialist & Business Growth Strategist helping automobile and eCommerce businesses grow through performance marketing, SEO, and data-driven strategies.",
+      "url": "https://smaranbasnet.com.np/",
+      "image": "https://smaranbasnet.com.np/images/image.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kathmandu",
+        "addressCountry": "Nepal"
+      },
+      "email": "mailto:smaran@example.com",
+      "telephone": "+977-9800000000",
+      "sameAs": [
+        "https://linkedin.com/in/yourprofile",
+        "https://instagram.com/yourprofile",
+        "https://twitter.com/yourprofile",
+        "https://facebook.com/yourprofile"
+      ]
+    },
+
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://smaranbasnet.com.np/#service",
+      "name": "Smaran Basnet Digital Marketing Services",
+      "image": "https://smaranbasnet.com.np/images/image.png",
+      "description": "Performance marketing, SEO, Google Ads, Meta Ads, eCommerce marketing, analytics, and social media management services.",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Nepal"
+      },
+      "provider": {
+        "@id": "https://smaranbasnet.com.np/#person"
+      }
+    },
+
+    {
+      "@type": "WebSite",
+      "@id": "https://smaranbasnet.com.np/#website",
+      "url": "https://smaranbasnet.com.np/",
+      "name": "Smaran Basnet | Digital Marketing Specialist",
+      "publisher": {
+        "@id": "https://smaranbasnet.com.np/#person"
+      }
+    }
+
+  ]
+}
+</script>
+
 </head>
 <body>
     <!-- THEME TOGGLE -->
@@ -20,7 +77,7 @@
 
     <!-- HEADER -->
     <header class="header" id="header">
-        <a href="#" class="logo">Smaran<span>B.</span></a>
+        <a href="#" class="logo">Sma<span>ran</span></a>
         <nav class="navbar">
             <a href="#home" class="nav-link active">Home</a>
             <a href="#about" class="nav-link">About</a>
@@ -40,7 +97,7 @@
                 <span class="greeting">Welcome to my portfolio</span>
                 <h1>Hi, I'm <span class="name-highlight">Smaran Basnet</span></h1>
                 <p class="tagline">Digital Marketing Specialist & Business Growth Strategist</p>
-                <p class="description">I help automobile and eCommerce businesses grow through performance marketing, SEO, and data-driven strategies.</p>
+                <p class="description">I help automobile and ECommerce businesses grow through performance marketing, SEO, and data-driven strategies.</p>
                 <div class="btn-box">
                     <a href="#contact" class="btn btn-primary">Hire Me</a>
                     <a href="#services" class="btn btn-outline">See Services</a>
@@ -48,7 +105,7 @@
             </div>
             <div class="profile-image">
                 <div class="image-wrapper">
-                    <img src="images/profile.jpg" alt="Smaran Basnet" onerror="this.src='https://ui-avatars.com/api/?name=Smaran+Basnet&size=400&background=6366f1&color=fff&bold=true&font-size=0.4'">
+                    <img src="images/image.png" alt="Smaran Basnet" onerror="this.src='https://ui-avatars.com/api/?name=Smaran+Basnet&size=400&background=6366f1&color=fff&bold=true&font-size=0.4'">
                 </div>
             </div>
         </div>
@@ -101,28 +158,6 @@
                     <span class="label">Followers</span>
                 </div>
             </a>
-            
-            <a href="https://youtube.com/@yourchannel" target="_blank" class="stat-card youtube">
-                <div class="icon-wrapper">
-                    <i class='bx bxl-youtube'></i>
-                </div>
-                <div class="stat-info">
-                    <h3>YouTube</h3>
-                    <p class="follower-count">3.2K</p>
-                    <span class="label">Subscribers</span>
-                </div>
-            </a>
-            
-            <a href="https://tiktok.com/@yourprofile" target="_blank" class="stat-card tiktok">
-                <div class="icon-wrapper">
-                    <i class='bx bxl-tiktok'></i>
-                </div>
-                <div class="stat-info">
-                    <h3>TikTok</h3>
-                    <p class="follower-count">20.1K</p>
-                    <span class="label">Followers</span>
-                </div>
-            </a>
         </div>
     </section>
 
@@ -130,7 +165,7 @@
     <section class="about" id="about">
         <div class="about-container">
             <div class="about-image">
-                <img src="images/about.jpg" alt="About Smaran" onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=800&fit=crop'">
+                <img src="images/about.jpg" alt="About Smaran" onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=800&fit=crop&q=80'">
                 <div class="experience-badge">
                     <span class="number">3+</span>
                     <span class="text">Years Experience</span>
@@ -237,11 +272,6 @@
         <div class="blog-grid" id="blogGrid">
             <!-- Blog posts will be dynamically inserted here -->
         </div>
-        <div class="add-post-btn-wrapper">
-            <button class="btn btn-primary" onclick="openAddPostModal()">
-                <i class='bx bx-plus'></i> Add New Project
-            </button>
-        </div>
     </section>
 
     <!-- CONTACT -->
@@ -279,38 +309,51 @@
                 <div class="collaboration">
                     <p class="collab-text">In collaboration with</p>
                     <a href="https://asbinthapa.info.np" target="_blank" class="collab-link">
-                        <span>asbinthapa.info.np</span>
+                        <span>Asbin Thapa </span>
                         <i class='bx bx-link-external'></i>
                     </a>
                 </div>
             </div>
             
-            <div class="contact-form-wrapper">
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" id="name" placeholder=" " required>
-                        <label for="name">Your Name</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" placeholder=" " required>
-                        <label for="email">Your Email</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="subject" placeholder=" " required>
-                        <label for="subject">Subject</label>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" rows="5" placeholder=" " required></textarea>
-                        <label for="message">Your Message</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">
-                        Send Message
-                        <i class='bx bx-send'></i>
-                    </button>
-                </form>
-            </div>
+          <div class="contact-form-wrapper">
+
+    <form class="contact-form" id="contactForm"
+          action="https://formspree.io/f/xwvnvwkk"
+          method="POST">
+        
+        <div class="form-group">
+            <input type="text" id="name" name="name" placeholder=" " required>
+            <label for="name">Your Name</label>
         </div>
-    </section>
+
+        <div class="form-group">
+            <input type="email" id="email" name="email" placeholder=" " required>
+            <label for="email">Your Email</label>
+        </div>
+
+        <div class="form-group">
+            <input type="text" id="subject" name="subject" placeholder=" " required>
+            <label for="subject">Subject</label>
+        </div>
+
+        <div class="form-group">
+            <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
+            <label for="message">Your Message</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            Send Message
+            <i class='bx bx-send'></i>
+        </button>
+
+    </form>
+</div>
+</div> <!-- contact-form-wrapper -->
+</div> <!-- contact-container -->
+</section> <!-- contact -->
+
+
+
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -340,40 +383,10 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Smaran Basnet | All Rights Reserved | In collaboration with <a href="https://asbinthapa.info.np">asbinthapa.info.np</a></p>
+            <p>&copy; 2026 Smaran Basnet | All Rights Reserved | In collaboration with <a href="https://asbinthapa.info.np" style="text-decoration: none;">Asbin Thapa</a></p>
         </div>
+        
     </footer>
-
-    <!-- ADD POST MODAL -->
-    <div class="modal" id="addPostModal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeAddPostModal()">&times;</span>
-            <h3>Add New Project</h3>
-            <form id="addPostForm" class="add-post-form">
-                <div class="form-group">
-                    <input type="text" id="postTitle" placeholder=" " required>
-                    <label for="postTitle">Project Title</label>
-                </div>
-                <div class="form-group">
-                    <input type="text" id="postTeam" placeholder=" " required>
-                    <label for="postTeam">Team/Company Name</label>
-                </div>
-                <div class="form-group">
-                    <input type="text" id="postImage" placeholder=" " required>
-                    <label for="postImage">Image URL</label>
-                </div>
-                <div class="form-group">
-                    <input type="date" id="postDate" required>
-                    <label for="postDate">Date</label>
-                </div>
-                <div class="form-group">
-                    <textarea id="postDescription" rows="4" placeholder=" " required></textarea>
-                    <label for="postDescription">Project Description</label>
-                </div>
-                <button type="submit" class="btn btn-primary">Add Project</button>
-            </form>
-        </div>
-    </div>
 
     <script src="script.js"></script>
 </body>

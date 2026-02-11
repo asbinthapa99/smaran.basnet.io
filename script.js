@@ -85,9 +85,11 @@ function initNavigation() {
     const menuToggle = document.getElementById('menuToggle');
     const navbar = document.querySelector('.navbar');
     
-    menuToggle.addEventListener('click', () => {
-        navbar.classList.toggle('active');
-    });
+    if (menuToggle && navbar) {
+        menuToggle.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+    }
 }
 
 // ===== SCROLL ANIMATIONS =====
@@ -118,63 +120,61 @@ function initScrollAnimations() {
 
 // ===== BLOG POSTS MANAGEMENT =====
 function initBlogPosts() {
-    // Initialize blog posts from localStorage if not exists
-    if (!localStorage.getItem('blogPosts')) {
-        const defaultPosts = [
-            {
-                id: 1,
-                title: 'SEO Campaign for AutoHub Nepal',
-                team: 'AutoHub Nepal',
-                image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop',
-                date: '2024-01-15',
-                description: 'Led a comprehensive SEO campaign that increased organic traffic by 250% in 6 months. Implemented technical SEO improvements, content strategy, and link building tactics that resulted in first-page rankings for 15 high-value keywords.'
-            },
-            {
-                id: 2,
-                title: 'eCommerce Growth Strategy for ShopNepal',
-                team: 'ShopNepal',
-                image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop',
-                date: '2024-02-20',
-                description: 'Developed and executed a multi-channel marketing strategy combining Google Ads, Facebook Ads, and email marketing. Achieved 180% increase in revenue and reduced customer acquisition cost by 35% within 4 months.'
-            },
-            {
-                id: 3,
-                title: 'Social Media Transformation for TechVenture',
-                team: 'TechVenture Pvt. Ltd.',
-                image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=400&fit=crop',
-                date: '2024-03-10',
-                description: 'Built social media presence from scratch, growing followers to 50K+ across platforms. Created engaging content strategy that resulted in 500% increase in engagement and generated 200+ qualified leads monthly.'
-            },
-            {
-                id: 4,
-                title: 'Performance Marketing for GearUp Sports',
-                team: 'GearUp Sports',
-                image: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=600&h=400&fit=crop',
-                date: '2024-04-05',
-                description: 'Managed performance marketing campaigns with $50K monthly budget. Optimized conversion funnels and ad creatives, achieving 8x ROAS and reducing cost per acquisition by 60% through data-driven optimization.'
-            },
-            {
-                id: 5,
-                title: 'Content Marketing Success for FoodieHub',
-                team: 'FoodieHub',
-                image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&h=400&fit=crop',
-                date: '2024-05-12',
-                description: 'Created comprehensive content marketing strategy including blog posts, videos, and infographics. Grew organic traffic from 500 to 15K monthly visitors and established brand as thought leader in the food industry.'
-            },
-            {
-                id: 6,
-                title: 'Digital Transformation for Heritage Motors',
-                team: 'Heritage Motors',
-                image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop',
-                date: '2024-06-18',
-                description: 'Complete digital marketing overhaul for automobile dealership. Implemented CRM system, automated email campaigns, and local SEO strategy that resulted in 300% increase in showroom visits and 150% boost in test drives.'
-            }
-        ];
-        localStorage.setItem('blogPosts', JSON.stringify(defaultPosts));
-    }
+    // Always set default posts to ensure all 6 projects show (overwrites any old data)
+    const defaultPosts = [
+        {
+            id: 1,
+            title: 'SEO Campaign for AutoHub Nepal',
+            team: 'AutoHub Nepal',
+            image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop',
+            date: '2024-01-15',
+            description: 'Led a comprehensive SEO campaign that increased organic traffic by 250% in 6 months. Implemented technical SEO improvements, content strategy, and link building tactics that resulted in first-page rankings for 15 high-value keywords.'
+        },
+        {
+            id: 2,
+            title: 'eCommerce Growth Strategy for ShopNepal',
+            team: 'ShopNepal',
+            image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop',
+            date: '2024-02-20',
+            description: 'Developed and executed a multi-channel marketing strategy combining Google Ads, Facebook Ads, and email marketing. Achieved 180% increase in revenue and reduced customer acquisition cost by 35% within 4 months.'
+        },
+        {
+            id: 3,
+            title: 'Social Media Transformation for TechVenture',
+            team: 'TechVenture Pvt. Ltd.',
+            image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=400&fit=crop',
+            date: '2024-03-10',
+            description: 'Built social media presence from scratch, growing followers to 50K+ across platforms. Created engaging content strategy that resulted in 500% increase in engagement and generated 200+ qualified leads monthly.'
+        },
+        {
+            id: 4,
+            title: 'Performance Marketing for GearUp Sports',
+            team: 'GearUp Sports',
+            image: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=600&h=400&fit=crop',
+            date: '2024-04-05',
+            description: 'Managed performance marketing campaigns with $50K monthly budget. Optimized conversion funnels and ad creatives, achieving 8x ROAS and reducing cost per acquisition by 60% through data-driven optimization.'
+        },
+        {
+            id: 5,
+            title: 'Content Marketing Success for FoodieHub',
+            team: 'FoodieHub',
+            image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&h=400&fit=crop',
+            date: '2024-05-12',
+            description: 'Created comprehensive content marketing strategy including blog posts, videos, and infographics. Grew organic traffic from 500 to 15K monthly visitors and established brand as thought leader in the food industry.'
+        },
+        {
+            id: 6,
+            title: 'Digital Transformation for Heritage Motors',
+            team: 'Heritage Motors',
+            image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop',
+            date: '2024-06-18',
+            description: 'Complete digital marketing overhaul for automobile dealership. Implemented CRM system, automated email campaigns, and local SEO strategy that resulted in 300% increase in showroom visits and 150% boost in test drives.'
+        }
+    ];
+    localStorage.setItem('blogPosts', JSON.stringify(defaultPosts));
 }
 
-// Load and display blog posts
+// Load and display blog posts (WITHOUT edit/delete buttons)
 function loadBlogPosts() {
     const blogGrid = document.getElementById('blogGrid');
     const posts = JSON.parse(localStorage.getItem('blogPosts')) || [];
@@ -182,7 +182,7 @@ function loadBlogPosts() {
     blogGrid.innerHTML = '';
     
     if (posts.length === 0) {
-        blogGrid.innerHTML = '<p style="text-align: center; color: var(--text-secondary); grid-column: 1/-1;">No projects yet. Add your first project!</p>';
+        blogGrid.innerHTML = '<p style="text-align: center; color: var(--text-secondary); grid-column: 1/-1;">No projects available.</p>';
         return;
     }
     
@@ -194,7 +194,7 @@ function loadBlogPosts() {
     });
 }
 
-// Create blog card element
+// Create blog card element (WITHOUT action buttons)
 function createBlogCard(post) {
     const card = document.createElement('div');
     card.className = 'blog-card';
@@ -218,145 +218,37 @@ function createBlogCard(post) {
             </div>
             <h3>${post.title}</h3>
             <p>${post.description}</p>
-            <div class="blog-actions">
-                <button class="icon-btn" onclick="editPost(${post.id})" title="Edit">
-                    <i class='bx bx-edit'></i>
-                </button>
-                <button class="icon-btn" onclick="deletePost(${post.id})" title="Delete">
-                    <i class='bx bx-trash'></i>
-                </button>
-            </div>
         </div>
     `;
     
     return card;
 }
 
-// Add new post
-function addPost(postData) {
-    const posts = JSON.parse(localStorage.getItem('blogPosts')) || [];
-    const newPost = {
-        id: Date.now(),
-        ...postData
-    };
-    posts.push(newPost);
-    localStorage.setItem('blogPosts', JSON.stringify(posts));
-    loadBlogPosts();
-    showNotification('Project added successfully!', 'success');
-}
-
-// Edit post
-function editPost(id) {
-    const posts = JSON.parse(localStorage.getItem('blogPosts')) || [];
-    const post = posts.find(p => p.id === id);
-    
-    if (!post) return;
-    
-    // Fill form with existing data
-    document.getElementById('postTitle').value = post.title;
-    document.getElementById('postTeam').value = post.team;
-    document.getElementById('postImage').value = post.image;
-    document.getElementById('postDate').value = post.date;
-    document.getElementById('postDescription').value = post.description;
-    
-    // Store editing ID
-    document.getElementById('addPostForm').setAttribute('data-editing-id', id);
-    
-    openAddPostModal();
-}
-
-// Delete post
-function deletePost(id) {
-    if (!confirm('Are you sure you want to delete this project?')) return;
-    
-    const posts = JSON.parse(localStorage.getItem('blogPosts')) || [];
-    const filteredPosts = posts.filter(p => p.id !== id);
-    localStorage.setItem('blogPosts', JSON.stringify(filteredPosts));
-    loadBlogPosts();
-    showNotification('Project deleted successfully!', 'success');
-}
-
-// Modal controls
-function openAddPostModal() {
-    const modal = document.getElementById('addPostModal');
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeAddPostModal() {
-    const modal = document.getElementById('addPostModal');
-    modal.classList.remove('active');
-    document.body.style.overflow = 'auto';
-    document.getElementById('addPostForm').reset();
-    document.getElementById('addPostForm').removeAttribute('data-editing-id');
-}
-
-// Close modal on outside click
-window.addEventListener('click', (e) => {
-    const modal = document.getElementById('addPostModal');
-    if (e.target === modal) {
-        closeAddPostModal();
-    }
-});
-
-// Handle add/edit post form
-document.getElementById('addPostForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const form = e.target;
-    const editingId = form.getAttribute('data-editing-id');
-    
-    const postData = {
-        title: document.getElementById('postTitle').value,
-        team: document.getElementById('postTeam').value,
-        image: document.getElementById('postImage').value,
-        date: document.getElementById('postDate').value,
-        description: document.getElementById('postDescription').value
-    };
-    
-    if (editingId) {
-        // Update existing post
-        const posts = JSON.parse(localStorage.getItem('blogPosts')) || [];
-        const index = posts.findIndex(p => p.id === parseInt(editingId));
-        if (index !== -1) {
-            posts[index] = { ...posts[index], ...postData };
-            localStorage.setItem('blogPosts', JSON.stringify(posts));
-            loadBlogPosts();
-            showNotification('Project updated successfully!', 'success');
-        }
-    } else {
-        // Add new post
-        addPost(postData);
-    }
-    
-    closeAddPostModal();
-    form.reset();
-    form.removeAttribute('data-editing-id');
-});
-
 // ===== CONTACT FORM =====
 function initContactForm() {
     const contactForm = document.getElementById('contactForm');
     
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            subject: document.getElementById('subject').value,
-            message: document.getElementById('message').value
-        };
-        
-        // Here you would typically send this to a backend
-        console.log('Form submitted:', formData);
-        
-        // Show success message
-        showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
-        
-        // Reset form
-        contactForm.reset();
-    });
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Here you would typically send this to a backend
+            console.log('Form submitted:', formData);
+            
+            // Show success message
+            showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
+            
+            // Reset form
+            contactForm.reset();
+        });
+    }
 }
 
 // ===== NOTIFICATION SYSTEM =====
@@ -474,7 +366,7 @@ setTimeout(animateCounters, 500);
 
 // ===== SMOOTH REVEAL ON SCROLL =====
 window.addEventListener('load', () => {
-    const sections = document.querySels('.about, .services, .social-stats, .blog, .contact');
+    const sections = document.querySelectorAll('.about, .services, .social-stats, .blog, .contact');
     
     const revealSection = (entries, observer) => {
         entries.forEach(entry => {
@@ -497,28 +389,3 @@ window.addEventListener('load', () => {
         sectionObserver.observe(section);
     });
 });
-
-// ===== MOBILE MENU =====
-const menuToggle = document.getElementById('menuToggle');
-const navbar = document.querySelector('.navbar');
-
-if (menuToggle) {
-    menuToggle.addEventListener('click', () => {
-        navbar.style.display = navbar.style.display === 'flex' ? 'none' : 'flex';
-        navbar.style.position = 'absolute';
-        navbar.style.top = '100%';
-        navbar.style.left = '0';
-        navbar.style.right = '0';
-        navbar.style.background = 'var(--header-bg)';
-        navbar.style.flexDirection = 'column';
-        navbar.style.padding = '2rem';
-        navbar.style.boxShadow = 'var(--shadow-lg)';
-        navbar.style.borderRadius = '0 0 var(--radius-md) var(--radius-md)';
-    });
-}
-
-// ===== EXPORT FUNCTIONS TO WINDOW =====
-window.openAddPostModal = openAddPostModal;
-window.closeAddPostModal = closeAddPostModal;
-window.editPost = editPost;
-window.deletePost = deletePost;
