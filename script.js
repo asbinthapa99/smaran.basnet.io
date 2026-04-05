@@ -77,9 +77,21 @@
 // ===== DOM READY =====
 document.addEventListener('DOMContentLoaded', () => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const header = document.getElementById('header');
+    const menuBtn = document.getElementById('menuToggle');
+    const navbar = document.querySelector('.navbar');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section[id]');
+
+    const closeMenu = () => {
+        if (!menuBtn || !navbar) return;
+        navbar.classList.remove('active');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
+    };
 
     // --- Scroll Reveal ---
-    const revealEls = document.querySelectorAll('.glass-card, .service-card, .stat-item, .about-img, .about-text, .contact-info, .contact-form, .section-header, footer');
+    const revealEls = document.querySelectorAll('.glass-card, .service-card, .stat-item, .about-img, .about-text, .contact-info, .contact-form, .section-header, .capability-card, footer');
     revealEls.forEach(el => el.classList.add('reveal'));
 
     if (prefersReducedMotion) {
@@ -100,47 +112,56 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Sticky Header ---
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
+    const syncHeader = () => {
         header.classList.toggle('scrolled', scrollY > 60);
-    });
+    };
+    window.addEventListener('scroll', syncHeader, { passive: true });
+    syncHeader();
 
     // --- Active Nav Link ---
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-    window.addEventListener('scroll', () => {
-        let current = '';
+    const syncActiveNav = () => {
+        let current = 'home';
         sections.forEach(s => {
-            if (scrollY >= s.offsetTop - 200) current = s.id;
+            if (scrollY >= s.offsetTop - 180) current = s.id;
         });
+        if (current === 'stats') current = 'home';
         navLinks.forEach(a => {
             a.classList.toggle('active', a.getAttribute('href') === '#' + current);
         });
-    });
+    };
+    window.addEventListener('scroll', syncActiveNav, { passive: true });
+    syncActiveNav();
 
     // --- Theme Toggle ---
     const themeBtn = document.getElementById('themeToggle');
-    themeBtn.addEventListener('click', () => {
-        const isDark = document.body.getAttribute('data-theme') === 'dark';
-        document.body.setAttribute('data-theme', isDark ? 'light' : 'dark');
-        localStorage.setItem('theme', isDark ? 'light' : 'dark');
-    });
-    // Restore saved theme
+    if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+            const isDark = document.body.getAttribute('data-theme') !== 'light';
+            document.body.setAttribute('data-theme', isDark ? 'light' : 'dark');
+            localStorage.setItem('theme', isDark ? 'light' : 'dark');
+        });
+    }
+
     const saved = localStorage.getItem('theme');
     if (saved) document.body.setAttribute('data-theme', saved);
 
     // --- Mobile Menu ---
-    const menuBtn = document.getElementById('menuToggle');
-    const navbar = document.querySelector('.navbar');
     if (menuBtn && navbar) {
         menuBtn.addEventListener('click', () => {
             const isOpen = navbar.classList.toggle('active');
             menuBtn.setAttribute('aria-expanded', String(isOpen));
+            document.body.classList.toggle('menu-open', isOpen);
         });
-        navbar.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-            navbar.classList.remove('active');
-            menuBtn.setAttribute('aria-expanded', 'false');
-        }));
+
+        navLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape') closeMenu();
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 920) closeMenu();
+        });
     }
 
     // --- Smooth Scroll ---
@@ -148,7 +169,15 @@ document.addEventListener('DOMContentLoaded', () => {
         anchor.addEventListener('click', e => {
             e.preventDefault();
             const target = document.querySelector(anchor.getAttribute('href'));
-            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (!target) return;
+
+            const headerOffset = header ? header.offsetHeight + 20 : 0;
+            const targetTop = target.getBoundingClientRect().top + window.scrollY - headerOffset;
+
+            window.scrollTo({
+                top: targetTop,
+                behavior: prefersReducedMotion ? 'auto' : 'smooth',
+            });
         });
     });
 
@@ -184,10 +213,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 form.reset();
             } catch (error) {
                 status.textContent = 'Copy failed. Please copy the details manually and send them on LinkedIn.';
-                btn.textContent = 'Copy Brief';
+                btn.textContent = 'Prepare Consultation Brief';
             } finally {
                 setTimeout(() => {
-                    btn.textContent = 'Copy Brief';
+                    btn.textContent = 'Prepare Consultation Brief';
                     btn.style.background = '';
                     btn.disabled = false;
                 }, 2200);
@@ -195,22 +224,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Progress Bar Animation ---
-    const progressBars = document.querySelectorAll('.progress');
-    const progressObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const bar = entry.target;
-                const width = bar.style.width;
-                bar.style.width = '0%';
-                setTimeout(() => { bar.style.width = width; }, 200);
-                progressObserver.unobserve(bar);
-            }
-        });
-    }, { threshold: 0.5 });
-    if (prefersReducedMotion) {
-        progressBars.forEach(bar => { bar.style.width = bar.style.width; });
-    } else {
-        progressBars.forEach(bar => progressObserver.observe(bar));
-    }
 });
