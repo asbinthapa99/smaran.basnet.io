@@ -7,6 +7,7 @@
     <title>Smaran Basnet | Digital Marketing Executive</title>
     <meta name="description"
         content="Smaran Basnet - Digital Marketing Executive & Business Growth Strategist. Helping automobile and eCommerce businesses grow through data-driven campaigns.">
+    <meta name="theme-color" content="#0f172a">
 
     <!-- Open Graph / LinkedIn -->
     <meta property="og:type" content="website">
@@ -46,10 +47,7 @@
             "addressCountry": "Nepal"
           },
           "sameAs": [
-            "https://linkedin.com/in/smaran-basnet-475a90254/",
-            "https://instagram.com/",
-            "https://twitter.com/",
-            "https://facebook.com/"
+                        "https://linkedin.com/in/smaran-basnet-475a90254/"
           ]
         }
       ]
@@ -58,6 +56,8 @@
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
     <!-- 3D BACKGROUND -->
     <canvas id="bg-canvas"></canvas>
 
@@ -69,18 +69,19 @@
 
     <!-- HEADER -->
     <header class="header" id="header">
-        <a href="#" class="logo">Sma<span>ran</span></a>
-        <nav class="navbar">
+        <a href="#home" class="logo">Sma<span>ran</span></a>
+        <nav class="navbar" id="primary-navigation" aria-label="Primary">
             <a href="#home" class="nav-link active">Home</a>
             <a href="#about" class="nav-link">About</a>
             <a href="#services" class="nav-link">Services</a>
             <a href="#contact" class="nav-link">Contact</a>
         </nav>
-        <div class="menu-toggle" id="menuToggle">
+        <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation" type="button">
             <i class='bx bx-menu'></i>
-        </div>
+        </button>
     </header>
 
+    <main id="main-content">
     <!-- HOME -->
     <section class="home" id="home">
         <div class="container home-content">
@@ -88,24 +89,19 @@
                 <span class="greeting">Hello, I'm</span>
                 <h1>Smaran Basnet</h1>
                 <div class="typing-container">
-                    <span class="typing-text">Digital Marketing Executive at BYDBhaktapur</span>
+                    <span class="typing-text">Digital Marketing Executive focused on measurable growth</span>
                 </div>
                 <p class="description">
-                    I help automobile and eCommerce businesses grow through performance marketing, SEO, and data-driven
-                    strategies.
-                    Based in London, UK.
+                    I help automobile and eCommerce businesses grow through performance marketing, SEO, and conversion-focused campaigns.
+                    Based in Bhaktapur, Nepal.
                 </p>
                 <div class="btn-box">
                     <a href="#contact" class="btn btn-primary">Hire Me <i class='bx bx-right-arrow-alt'></i></a>
                     <a href="#services" class="btn btn-outline">My Services</a>
                 </div>
 
-                <div class="social-links-hero">
-                    <a href="https://linkedin.com/in/smaran-basnet-475a90254/" target="_blank"><i
-                            class='bx bxl-linkedin'></i></a>
-                    <a href="#" target="_blank"><i class='bx bxl-instagram'></i></a>
-                    <a href="#" target="_blank"><i class='bx bxl-twitter'></i></a>
-                    <a href="#" target="_blank"><i class='bx bxl-facebook'></i></a>
+                <div class="profile-link-row">
+                    <a href="https://linkedin.com/in/smaran-basnet-475a90254/" class="profile-link" target="_blank" rel="noreferrer">View LinkedIn Profile</a>
                 </div>
             </div>
 
@@ -113,53 +109,52 @@
                 <div class="profile-frame">
                     <div class="spinning-border"></div>
                     <div class="image-wrapper">
-                        <img src="images/image.png" alt="Smaran Basnet"
-                            onerror="this.src='https://ui-avatars.com/api/?name=Smaran+Basnet&size=400&background=6366f1&color=fff&bold=true&font-size=0.4'">
+                        <img src="images/image.png" alt="Portrait of Smaran Basnet">
                     </div>
 
                     <!-- Floating Cards -->
                     <div class="float-card card-1">
                         <i class='bx bx-trending-up'></i>
-                        <span>3+ Years Exp.</span>
+                        <span>Performance Marketing</span>
                     </div>
                     <div class="float-card card-2">
                         <i class='bx bx-check-circle'></i>
-                        <span>5+ Projects</span>
+                        <span>SEO & Paid Media</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SOCIAL STATS -->
+    <!-- PROFESSIONAL HIGHLIGHTS -->
     <section class="stats" id="stats">
         <div class="container stats-grid">
             <div class="stat-item glass-card">
-                <i class='bx bxl-linkedin linkedin-color'></i>
+                    <i class='bx bx-target-lock highlight-color-1'></i>
                 <div class="stat-text">
-                    <h3 class="counter" data-target="24">0</h3>
-                    <span>Connections</span>
+                    <h3>Lead Generation</h3>
+                    <span>Campaigns built to generate qualified inquiries, not vanity traffic.</span>
                 </div>
             </div>
             <div class="stat-item glass-card">
-                <i class='bx bxl-instagram instagram-color'></i>
+                    <i class='bx bx-search-alt highlight-color-2'></i>
                 <div class="stat-text">
-                    <h3 class="counter" data-target="2200">0</h3>
-                    <span>Followers</span>
+                    <h3>SEO Visibility</h3>
+                    <span>Organic growth strategies designed for consistent discoverability.</span>
                 </div>
             </div>
             <div class="stat-item glass-card">
-                <i class='bx bxl-twitter twitter-color'></i>
+                    <i class='bx bx-line-chart highlight-color-3'></i>
                 <div class="stat-text">
-                    <h3 class="counter" data-target="1500">0</h3>
-                    <span>Followers</span>
+                    <h3>Paid Media</h3>
+                    <span>Google and Meta ads aligned with budget efficiency and business intent.</span>
                 </div>
             </div>
             <div class="stat-item glass-card">
-                <i class='bx bxl-facebook facebook-color'></i>
+                    <i class='bx bx-cart highlight-color-4'></i>
                 <div class="stat-text">
-                    <h3 class="counter" data-target="2800">0</h3>
-                    <span>Followers</span>
+                    <h3>eCommerce Growth</h3>
+                    <span>Conversion-focused optimization across product pages, funnels, and offers.</span>
                 </div>
             </div>
         </div>
@@ -169,24 +164,19 @@
     <section class="about" id="about">
         <div class="container about-container">
             <div class="about-img glass-card">
-                <img src="images/about-image.png" alt="About Smaran"
-                    onerror="this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=800&fit=crop'">
+                <img src="images/about-image.png" alt="Smaran Basnet working on digital marketing strategy">
             </div>
             <div class="about-text glass-card">
                 <span class="subtitle">About Me</span>
                 <h2>Driving Business Growth</h2>
                 <p>
-                    I am a <strong>Digital Marketing Executive</strong> at <strong>BYDBhaktapur (B. Mai Automobiles Pvt.
-                        Ltd.)</strong> with over 3 years of experience.
-                    Previously, I worked as a Tech Support & Graphic Designer at <strong>Classic Tech</strong>.
+                    I am a <strong>Digital Marketing Executive</strong> at <strong>BYD Bhaktapur (B. Mai Automobiles Pvt. Ltd.)</strong>, working on campaigns that connect brand visibility with qualified business growth.
                 </p>
                 <p>
-                    I hold a <strong>Bachelor In Information Management</strong> from <strong>Orchid International
-                        College</strong> (Tribhuvan University).
-                   I hold a Bachelor’s degree in Information Management, where I developed an understanding of how information systems, websites, 
-                    and technology support business operations and improve efficiency. I also gained practical experience working at an automobile 
-                    dealership, where I developed skills in marketing, customer interaction, and understanding real-world business processes. 
-                    My background combines knowledge of business systems with hands-on experience in marketing and operations.
+                    I hold a <strong>Bachelor in Information Management</strong> from <strong>Orchid International College</strong> under Tribhuvan University. My background combines business systems knowledge with hands-on experience in automotive marketing, customer communication, and day-to-day commercial operations.
+                </p>
+                <p>
+                    Before moving fully into marketing, I worked in technical support and graphic design. That mix of analytical and creative experience helps me build campaigns that are clear, practical, and performance-oriented.
                 </p>
 
                 <div class="skills-grid">
@@ -224,22 +214,22 @@
                 <div class="service-card glass-card">
                     <div class="icon-box"><i class='bx bx-line-chart'></i></div>
                     <h3>Digital Strategy</h3>
-                    <p>Comprehensive marketing plans aligned with your business goals to ensure maximum ROI.</p>
+                    <p>Marketing plans built around business goals, channel fit, and measurable performance targets.</p>
                 </div>
                 <div class="service-card glass-card">
                     <div class="icon-box"><i class='bx bx-search-alt'></i></div>
                     <h3>SEO Optimization</h3>
-                    <p>Ranking your website on the first page of Google to drive organic traffic.</p>
+                    <p>On-page and content-focused SEO improvements that support long-term organic visibility.</p>
                 </div>
                 <div class="service-card glass-card">
                     <div class="icon-box"><i class='bx bx-target-lock'></i></div>
                     <h3>PPC Advertising</h3>
-                    <p>Google & Meta Ads management that targets the right audience at the right time.</p>
+                    <p>Google and Meta ad campaigns structured to reach the right audience with efficient spend.</p>
                 </div>
                 <div class="service-card glass-card">
                     <div class="icon-box"><i class='bx bx-cart'></i></div>
                     <h3>eCommerce Growth</h3>
-                    <p>Specialized strategies to increase sales, reduce cart abandonment, and boost LTV.</p>
+                    <p>Conversion-oriented support for online stores, from traffic quality to checkout performance.</p>
                 </div>
             </div>
         </div>
@@ -250,7 +240,7 @@
         <div class="container contact-wrapper">
             <div class="contact-info glass-card">
                 <h3>Let's Work Together</h3>
-                <p>Ready to take your business to the next level? Get in touch today.</p>
+                <p>If you need support with performance marketing, SEO, or campaign planning, send a short project brief and I will review it.</p>
 
                 <div class="info-item">
                     <i class='bx bx-map'></i>
@@ -260,48 +250,57 @@
                     </div>
                 </div>
                 <div class="info-item">
-                    <i class='bx bx-envelope'></i>
+                    <i class='bx bx-link-alt'></i>
                     <div>
-                        <h4>Email</h4>
-                        <p>smaran@example.com</p>
+                        <h4>Best Contact Channel</h4>
+                        <p>LinkedIn message for first contact</p>
                     </div>
                 </div>
                 <div class="info-item">
-                    <i class='bx bx-phone'></i>
+                    <i class='bx bx-time-five'></i>
                     <div>
-                        <h4>Phone</h4>
-                        <p>+977-9800000000</p>
+                        <h4>Availability</h4>
+                        <p>Open to marketing collaborations and growth projects</p>
                     </div>
                 </div>
+
+                <a class="btn btn-primary contact-linkedin" href="https://linkedin.com/in/smaran-basnet-475a90254/" target="_blank" rel="noreferrer">Connect on LinkedIn <i class='bx bx-right-arrow-alt'></i></a>
             </div>
 
             <div class="contact-form glass-card">
                 <form id="contactForm">
                     <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" required>
+                        <label for="contactName">Name</label>
+                        <input id="contactName" name="name" type="text" autocomplete="name" required>
                     </div>
                     <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" required>
+                        <label for="contactBusiness">Company or Brand</label>
+                        <input id="contactBusiness" name="business" type="text" autocomplete="organization">
                     </div>
                     <div class="form-group">
-                        <label>Message</label>
-                        <textarea rows="4" required></textarea>
+                        <label for="contactGoal">Primary Goal</label>
+                        <input id="contactGoal" name="goal" type="text" placeholder="Lead generation, SEO growth, paid ads, eCommerce sales" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <div class="form-group">
+                        <label for="contactMessage">Project Brief</label>
+                        <textarea id="contactMessage" name="message" rows="5" placeholder="Share your current challenge, target audience, and timeline." required></textarea>
+                    </div>
+                    <p class="form-helper">This form prepares a concise brief and copies it to your clipboard so you can send it on LinkedIn.</p>
+                    <button type="submit" class="btn btn-primary">Copy Brief</button>
+                    <p class="form-status" id="formStatus" aria-live="polite"></p>
                 </form>
             </div>
         </div>
     </section>
+    </main>
 
     <!-- FOOTER -->
     <footer>
         <p>&copy; 2026 Smaran Basnet. All Rights Reserved.</p>
-        <p class="collab">In collaboration with <a href="https://asbinthapa.info.np" target="_blank">Asbin Thapa</a></p>
     </footer>
 
     <script src="script.js"></script>
 </body>
 
 </html>
+
