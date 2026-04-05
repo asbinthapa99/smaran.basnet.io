@@ -44,6 +44,10 @@ html {
     scroll-behavior: smooth;
 }
 
+body:focus-within {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--font);
     background: var(--bg);
@@ -61,6 +65,30 @@ a {
 img {
     max-width: 100%;
     display: block;
+}
+
+.skip-link {
+    position: absolute;
+    top: -48px;
+    left: 16px;
+    padding: 0.75rem 1rem;
+    background: var(--heading);
+    color: #fff;
+    border-radius: 10px;
+    z-index: 1000;
+    transition: top 0.2s var(--ease);
+}
+
+.skip-link:focus {
+    top: 16px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid rgba(99, 102, 241, 0.28);
+    outline-offset: 3px;
 }
 
 /* === 3D CANVAS === */
@@ -253,6 +281,8 @@ section {
     font-size: 1.8rem;
     color: var(--heading);
     cursor: pointer;
+    background: transparent;
+    border: none;
 }
 
 /* === HERO === */
@@ -292,7 +322,7 @@ section {
     animation: fadeSlideUp 0.6s var(--ease) 1.0s both;
 }
 
-.text-content .social-links-hero {
+.text-content .profile-link-row {
     animation: fadeSlideUp 0.6s var(--ease) 1.2s both;
 }
 
@@ -397,21 +427,23 @@ section {
     transform: translateY(-3px);
 }
 
-.social-links-hero {
+.profile-link-row {
     display: flex;
-    gap: 1.2rem;
     margin-top: 2rem;
 }
 
-.social-links-hero a {
-    font-size: 1.5rem;
-    color: var(--text);
-    transition: color 0.3s var(--ease), transform 0.3s var(--ease);
+.profile-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--accent);
+    font-weight: 600;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s var(--ease), color 0.3s var(--ease);
 }
 
-.social-links-hero a:hover {
-    color: var(--accent);
-    transform: translateY(-3px);
+.profile-link:hover {
+    color: var(--accent-dark);
+    border-color: currentColor;
 }
 
 /* === ROUND FLOATING PHOTO === */
@@ -550,27 +582,27 @@ section {
     margin-bottom: 0.8rem;
 }
 
-.linkedin-color {
+.highlight-color-1 {
     color: #0077b5;
 }
 
-.instagram-color {
+.highlight-color-2 {
     color: #e1306c;
 }
 
-.twitter-color {
+.highlight-color-3 {
     color: #1da1f2;
 }
 
-.facebook-color {
+.highlight-color-4 {
     color: #1877f2;
 }
 
 .stat-text h3 {
-    font-size: 2.2rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: var(--heading);
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.5rem;
 }
 
 .stat-text span {
@@ -753,6 +785,10 @@ section {
     margin-bottom: 2rem;
 }
 
+.contact-linkedin {
+    margin-top: 0.5rem;
+}
+
 .info-item {
     display: flex;
     gap: 1rem;
@@ -825,6 +861,18 @@ section {
     min-height: 100px;
 }
 
+.form-helper {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.form-status {
+    min-height: 1.5rem;
+    margin-top: 0.9rem;
+    font-size: 0.95rem;
+    color: var(--heading);
+}
+
 /* === FOOTER === */
 footer {
     text-align: center;
@@ -840,18 +888,24 @@ footer p {
     color: var(--text);
 }
 
-.collab {
-    margin-top: 0.3rem;
-}
+@media (prefers-reduced-motion: reduce) {
+    html,
+    body:focus-within {
+        scroll-behavior: auto;
+    }
 
-.collab a {
-    color: var(--accent);
-    font-weight: 600;
-    transition: opacity 0.3s;
-}
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 
-.collab a:hover {
-    opacity: 0.8;
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
 }
 
 /* === RESPONSIVE === */
@@ -866,7 +920,7 @@ footer p {
         order: -1;
     }
 
-    .social-links-hero {
+    .profile-link-row {
         justify-content: center;
     }
 
@@ -923,6 +977,11 @@ footer p {
 
     .navbar a {
         font-size: 1.1rem;
+    }
+
+    .contact-linkedin {
+        width: 100%;
+        justify-content: center;
     }
 }
 
