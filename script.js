@@ -6,7 +6,8 @@
 // ===== THREE.JS PARTICLE BACKGROUND =====
 (function initThreeJS() {
     const canvas = document.getElementById('bg-canvas');
-    if (!canvas || typeof THREE === 'undefined') return;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!canvas || typeof THREE === 'undefined' || prefersReducedMotion) return;
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, innerWidth / innerHeight, 0.1, 1000);
@@ -75,22 +76,28 @@
 
 // ===== DOM READY =====
 document.addEventListener('DOMContentLoaded', () => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // --- Scroll Reveal ---
     const revealEls = document.querySelectorAll('.glass-card, .service-card, .stat-item, .about-img, .about-text, .contact-info, .contact-form, .section-header, footer');
     revealEls.forEach(el => el.classList.add('reveal'));
 
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry, i) => {
-            if (entry.isIntersecting) {
-                // Stagger animations
-                setTimeout(() => entry.target.classList.add('visible'), i * 80);
-                revealObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.15 });
+    if (prefersReducedMotion) {
+        revealEls.forEach(el => el.classList.add('visible'));
+    }
 
-    revealEls.forEach(el => revealObserver.observe(el));
+    if (!prefersReducedMotion) {
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => entry.target.classList.add('visible'), i * 80);
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        revealEls.forEach(el => revealObserver.observe(el));
+    }
 
     // --- Sticky Header ---
     const header = document.getElementById('header');
@@ -126,41 +133,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuBtn = document.getElementById('menuToggle');
     const navbar = document.querySelector('.navbar');
     if (menuBtn && navbar) {
-        menuBtn.addEventListener('click', () => navbar.classList.toggle('active'));
-        navbar.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navbar.classList.remove('active')));
-    }
-
-    // --- Counter Animation ---
-    const counters = document.querySelectorAll('.counter');
-    let countersDone = false;
-    const counterObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !countersDone) {
-                countersDone = true;
-                counters.forEach(el => {
-                    const target = +el.dataset.target;
-                    const duration = 1600;
-                    const steps = 60;
-                    const increment = target / steps;
-                    let current = 0;
-                    const timer = setInterval(() => {
-                        current += increment;
-                        if (current >= target) {
-                            clearInterval(timer);
-                            el.textContent = target >= 1000 ? (target / 1000).toFixed(1) + 'K' : target;
-                        } else {
-                            el.textContent = target >= 1000
-                                ? (current / 1000).toFixed(1) + 'K'
-                                : Math.ceil(current);
-                        }
-                    }, duration / steps);
-                });
-                counterObserver.disconnect();
-            }
+        menuBtn.addEventListener('click', () => {
+            const isOpen = navbar.classList.toggle('active');
+            menuBtn.setAttribute('aria-expanded', String(isOpen));
         });
-    }, { threshold: 0.1 });
-    const statsSection = document.querySelector('.stats');
-    if (statsSection) counterObserver.observe(statsSection);
+        navbar.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+            navbar.classList.remove('active');
+            menuBtn.setAttribute('aria-expanded', 'false');
+        }));
+    }
 
     // --- Smooth Scroll ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -174,21 +155,43 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Contact Form ---
     const form = document.getElementById('contactForm');
     if (form) {
-        form.addEventListener('submit', e => {
+        const status = document.getElementById('formStatus');
+
+        form.addEventListener('submit', async e => {
             e.preventDefault();
             const btn = form.querySelector('button[type="submit"]');
-            btn.textContent = 'Sending...';
+            const formData = new FormData(form);
+            const name = (formData.get('name') || '').toString().trim();
+            const business = (formData.get('business') || '').toString().trim();
+            const goal = (formData.get('goal') || '').toString().trim();
+            const message = (formData.get('message') || '').toString().trim();
+            const brief = [
+                `Name: ${name}`,
+                business ? `Company or Brand: ${business}` : 'Company or Brand: Not specified',
+                `Primary Goal: ${goal}`,
+                'Project Brief:',
+                message,
+            ].join('\n');
+
+            btn.textContent = 'Copying...';
             btn.disabled = true;
-            setTimeout(() => {
-                btn.textContent = '✓ Message Sent!';
+
+            try {
+                await navigator.clipboard.writeText(brief);
+                status.textContent = 'Project brief copied. Paste it into a LinkedIn message to start the conversation.';
+                btn.textContent = 'Copied';
                 btn.style.background = '#10b981';
                 form.reset();
+            } catch (error) {
+                status.textContent = 'Copy failed. Please copy the details manually and send them on LinkedIn.';
+                btn.textContent = 'Copy Brief';
+            } finally {
                 setTimeout(() => {
-                    btn.textContent = 'Send Message';
+                    btn.textContent = 'Copy Brief';
                     btn.style.background = '';
                     btn.disabled = false;
-                }, 2500);
-            }, 1200);
+                }, 2200);
+            }
         });
     }
 
@@ -205,5 +208,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, { threshold: 0.5 });
-    progressBars.forEach(bar => progressObserver.observe(bar));
+    if (prefersReducedMotion) {
+        progressBars.forEach(bar => { bar.style.width = bar.style.width; });
+    } else {
+        progressBars.forEach(bar => progressObserver.observe(bar));
+    }
 });
