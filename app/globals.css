@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-brand-green: #22C55E;
+  --color-brand-dark: #0B0B0B;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B0B0B;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #22C55E;
+  border-radius: 3px;
+}
