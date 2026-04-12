@@ -58,7 +58,13 @@ export default function Services() {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="flex gap-5 p-6 rounded-2xl border border-white/10 bg-white/5 hover:border-green-500/30 hover:bg-white/[0.07] transition-all duration-300"
             >
-              <div className="text-3xl flex-shrink-0 mt-0.5">{service.icon}</div>
+              <div
+                className="text-3xl flex-shrink-0 mt-0.5"
+                aria-label={service.title}
+                role="img"
+              >
+                {service.icon}
+              </div>
               <div>
                 <h3 className="text-white font-semibold text-lg mb-2">
                   {service.title}
